@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rakesh Sharma | IP Strategist & Patent Consultant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0a2463;
+      --secondary: #247ba0;
+      --accent: #70c1b3;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --transition: all 0.3s ease-in-out;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    header.scrolled {
+      padding: 0.5rem 0;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+    
+    .hero-text {
+      max-width: 600px;
+      padding-right: 2rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .hero-quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .hero-quote::before,
+    .hero-quote::after {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      opacity: 0.2;
+      font-family: Georgia, serif;
+    }
+    
+    .hero-quote::before {
+      top: -10px;
+      left: 5px;
+    }
+    
+    .hero-quote::after {
+      bottom: -45px;
+      right: 5px;
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .profile-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 5px solid white;
+      transition: transform 0.5s ease;
+    }
+    
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .image-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(112, 193, 179, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+      z-index: -1;
+      animation: pulse 3s infinite;
+    }
+    
+    .social-links {
+      display: flex;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      color: var(--primary);
+      margin-right: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px);
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Sections */
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+    
+    section:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      color: var(--primary);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+    
+    /* Expertise Section */
+    .expertise-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .expertise-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .expertise-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .expertise-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    .expertise-card p {
+      color: #666;
+    }
+    
+    .expertise-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--secondary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid var(--accent);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-item.right {
+      left: 50%;
+      transform: translateX(30px);
+    }
+    
+    .timeline-item.right::after {
+      left: -10px;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-content h3 {
+      margin: 0;
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
+    
+    .timeline-content h4 {
+      margin: 10px 0;
+      color: var(--dark);
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+    
+    .timeline-content p {
+      margin: 15px 0 0;
+      font-size: 0.95rem;
+    }
+    
+    .timeline-date {
+      position: absolute;
+      width: 150px;
+      text-align: center;
+      padding: 5px 10px;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 20px;
+      top: 12px;
+      font-size: 0.8rem;
+    }
+    
+    .left .timeline-date {
+      right: -175px;
+    }
+    
+    .right .timeline-date {
+      left: -175px;
+    }
+    
+    /* Education Section */
+    .education-container {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .education-item {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .education-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .education-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+    
+    .education-item h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .education-item p {
+      color: #666;
+    }
+    
+    .education-date {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0 10px 0 10px;
+      font-size: 0.8rem;
+    }
+    
+    /* Volunteering Section */
+    .volunteering-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .volunteering-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      height: 100%;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .volunteering-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .volunteering-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+    
+    .volunteering-card h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .volunteering-card p {
+      color: #666;
+    }
+    
+    .volunteering-date {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Recommendations Section */
+    .recommendations-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .recommendations-slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    
+    .recommendation-card {
+      min-width: 100%;
+      flex-shrink: 0;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      opacity: 1;
+      transform: translateY(0);
+      transition: var(--transition);
+      display: block;
+      white-space: normal;
+    }
+    
+    .recommendation-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .recommendation-text::before,
+    .recommendation-text::after {
+      content: '"';
+      font-size: 2rem;
+      position: absolute;
+      color: var(--accent);
+      opacity: 0.5;
+      font-family: Georgia, serif;
+    }
+    
+    .recommendation-text::before {
+      top: -10px;
+      left: 0;
+    }
+    
+    .recommendation-text::after {
+      bottom: -30px;
+      right: 0;
+    }
+    
+    .recommendation-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-details {
+      margin-left: 15px;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .author-title {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    
+    .slider-control {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      color: var(--primary);
+      border: none;
+      margin: 0 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .slider-control:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Contact Section */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 2rem;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-right: 1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 2px rgba(36, 123, 160, 0.2);
+    }
+    
+    .form-button {
+      padding: 12px 25px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .form-button:hover {
+      background-color: var(--secondary);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-social {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--accent);
+      transform: translateY(-5px);
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Parallax Backgrounds */
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+      opacity: 0.1;
+    }
+    
+    #expertise-bg {
+      background-image: url('/api/placeholder/1000/600');
+    }
+    
+    #experience-bg {
+      background-image: url('/api/placeholder/1000/600');
+    }
+    
+    /* Back To Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--secondary);
+    }
+    
+    /* Responsive Enhancements */
+    @media (max-width: 1200px) {
+      .container {
+        width: 95%;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        padding-right: 0;
+        margin-bottom: 3rem;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item::after {
+        left: 21px;
+      }
+      
+      .timeline-item.right {
+        left: 0;
+      }
+      
+      .timeline-date {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .contact-info {
+        padding-right: 0;
+        margin-bottom: 2rem;
+      }
+      
+      .expertise-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .profile-img {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .nav-links li {
+        margin: 1rem 0;
+      }
+      
+      .hamburger {
+        display: block;
+        z-index: 1000;
+      }
+      
+      .expertise-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-img {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .hero {
+        height: auto;
+        padding: 120px 0 60px;
+      }
+      
+      .recommendation-text {
+        font-size: 0.9rem;
+      }
+      
+      .recommendation-card {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-quote {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .profile-img {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
+      }
+      
+      .expertise-card, 
+      .education-item, 
+      .volunteering-card {
+        padding: 1.5rem;
+      }
+      
+      .timeline-content {
+        padding: 15px;
+      }
+      
+      .timeline-content h3 {
+        font-size: 1.1rem;
+      }
+      
+      .form-button {
+        width: 100%;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+      }
+      
+      .footer-links a {
+        margin: 0.5rem 0;
+      }
+    }
+    
+    /* Fix for iOS Safari 100vh issue */
+    @supports (-webkit-touch-callout: none) {
+      .hero {
+        height: -webkit-fill-available;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">Rakesh Sharma</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#recommendations">Recommendations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">IP Strategist & Patent Consultant</h1>
+          <h2 class="hero-subtitle">Transforming Innovations into Assets</h2>
+          <div class="hero-quote">
+            I am an IP professional, Patent Consultant, and Technology Strategist with expertise in Patent Law, Drafting, Prosecution, and Portfolio Management. Having worked with leading organizations like XLSCOUT, Honeywell, and TT Consultants, I specialize in simplifying complex IP concepts, mentoring professionals, and driving innovation through strategic IP solutions.
+          </div>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/rakesh-sharma-b595baa2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:errs404@gmail.com"><i class="far fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-glow"></div>
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQF2hB_sNgt-zA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1630930610799?e=1746057600&v=beta&t=cK_OYSXyGQKBLNy-S2SAYZIcYhqtsoClWTduF-KQ9Ko" alt="Rakesh Sharma" class="profile-img" onerror="this.src='/api/placeholder/400/400';this.onerror='';">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section id="expertise">
+    <div class="parallax-bg" id="expertise-bg"></div>
+    <div class="container">
+      <h2 class="section-title">Areas of Expertise</h2>
+      <div class="expertise-container">
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>IP Strategy Architecture</h3>
+          <p>Designing comprehensive patent portfolios aligned with business objectives and market opportunities.</p>
+        </div>
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Innovation Cultivation</h3>
+          <p>Guiding teams from ideation to monetization through strategic IP frameworks and processes.</p>
+        </div>
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-language"></i></div>
+          <h3>Technical Translation</h3>
+          <p>Transforming complex innovations into legally robust patent applications with strategic scope.</p>
+        </div>
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-users"></i></div>
+          <h3>Stakeholder Engagement</h3>
+          <p>Building collaborative relationships across technical, legal, and business domains.</p>
+        </div>
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI-Enhanced IP Solutions</h3>
+          <p>Leveraging explainable AI for patent analytics and strategic decision support.</p>
+        </div>
+        <div class="expertise-card scroll-reveal">
+          <div class="expertise-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Mentorship & Leadership</h3>
+          <p>Empowering professionals through knowledge sharing and strategic guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="parallax-bg" id="experience-bg"></div>
+    <div class="container">
+      <h2 class="section-title">Professional Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item left scroll-reveal">
+          <div class="timeline-date">Oct 2022 - Present</div>
+          <div class="timeline-content">
+            <h3>Managing Associate</h3>
+            <h4>InventIP Legal Services LLP</h4>
+            <p>Promoting innovation from ideation to monetization, supporting business as a Solution Architect, and providing IP awareness, mentorship, and leadership.</p>
+          </div>
+        </div>
+        <div class="timeline-item right scroll-reveal">
+          <div class="timeline-date">Feb 2022 - Sep 2022</div>
+          <div class="timeline-content">
+            <h3>Product Consultant</h3>
+            <h4>XLSCOUT</h4>
+            <p>Solution architect for IP automation, idea screening using Explainable AI, technology landscapes, and competitive intelligence.</p>
+          </div>
+        </div>
+        <div class="timeline-item left scroll-reveal">
+          <div class="timeline-date">Dec 2018 - Feb 2022</div>
+          <div class="timeline-content">
+            <h3>Senior Patent Specialist</h3>
+            <h4>Honeywell</h4>
+            <p>Managed patent portfolios, conducted IP automation, and streamlined technology scouting processes.</p>
+          </div>
+        </div>
+        <div class="timeline-item right scroll-reveal">
+          <div class="timeline-date">Jul 2016 - Dec 2018</div>
+          <div class="timeline-content">
+            <h3>Research Associate</h3>
+            <h4>Evalueserve</h4>
+            <p>Patent search and analytics expert, aiding R&D teams in patent drafting and prosecution.</p>
+          </div>
+        </div>
+        <div class="timeline-item left scroll-reveal">
+          <div class="timeline-date">Dec 2015 - Jul 2016</div>
+          <div class="timeline-content">
+            <h3>Senior Research Associate</h3>
+            <h4>Virtual Employee Pvt. Ltd.</h4>
+            <p>Patent search & analytics, patent drafting, and prosecution. Conducted IDF reviews and inventor interviews.</p>
+          </div>
+        </div>
+        <div class="timeline-item right scroll-reveal">
+          <div class="timeline-date">May 2015 - Dec 2015</div>
+          <div class="timeline-content">
+            <h3>Patent Associate</h3>
+            <h4>Perfexio Legal Attorney's at Law</h4>
+            <p>Specialized in patent law and intellectual property services.</p>
+          </div>
+        </div>
+        <div class="timeline-item left scroll-reveal">
+          <div class="timeline-date">Nov 2013 - May 2015</div>
+          <div class="timeline-content">
+            <h3>Patent Research Analyst</h3>
+            <h4>TT Consultants</h4>
+            <p>Conducted patentability searches, invalidity searches, infringement analysis, and FTO analysis using various databases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-container">
+        <div class="education-item scroll-reveal">
+          <h3>Haryana Engineering College Jagadhri</h3>
+          <h4>Bachelor of Technology (BTech), Electronics & Communication</h4>
+          <div class="education-date">2007 - 2011</div>
+        </div>
+        <div class="education-item scroll-reveal">
+          <h3>S D Sr. Sec School Jagadhri</h3>
+          <h4>Higher Secondary, Non-Medical</h4>
+          <div class="education-date">2004 - 2006</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Volunteering Section -->
+  <section id="volunteering">
+    <div class="container">
+      <h2 class="section-title">Volunteering</h2>
+      <div class="volunteering-container">
+        <div class="volunteering-card scroll-reveal">
+          <h3>Founder</h3>
+          <h4>Ujjwal Bhavishya</h4>
+          <div class="volunteering-date">Sep 2020 - Present</div>
+          <p>Founded an NGO focused on education, environment, and economic development initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Recommendations Section -->
+<section id="recommendations">
+    <div class="container">
+      <h2 class="section-title">Recommendations</h2>
+      <div class="recommendations-container">
+        <div class="recommendations-slider">
+          <div class="recommendation-card">
+            <p class="recommendation-text">“Rakesh is an exceptional professional with deep expertise in intellectual property. His leadership and mentoring abilities make him a valuable asset to any organization.”</p>
+            <div class="recommendation-author">
+              <div class="author-details">
+                <p class="author-name">Krishnakant Koneru</p>
+                <p class="author-title">Enterprise Solutions Architect @ Ericsson</p>
+              </div>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">“Rakesh is a great professional, easy to work with, and always willing to help his colleagues. His dedication and work ethics are impeccable.”</p>
+            <div class="recommendation-author">
+              <div class="author-details">
+                <p class="author-name">Suraj Arya</p>
+                <p class="author-title">Managing Associate-KPMG</p>
+              </div>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">“Rakesh's expertise in patent drafting and prosecution is unmatched. His insights and leadership skills greatly benefit any team.”</p>
+            <div class="recommendation-author">
+              <div class="author-details">
+                <p class="author-name">Sonia Buntel</p>
+                <p class="author-title">Intellectual Property Expert</p>
+              </div>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">“Rakesh is an excellent mentor who helped boost my confidence and provided valuable guidance in the patent field.”</p>
+            <div class="recommendation-author">
+              <div class="author-details">
+                <p class="author-name">Shelly Marya</p>
+                <p class="author-title">IP Sales Expert @ Kurukshetra University</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info scroll-reveal">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <p>errs404@gmail.com</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <p><a href="https://linkedin.com/in/rakesh-sharma-b595baa2">LinkedIn</a></p>
+          </div>
+        </div>
+        <div class="contact-form scroll-reveal">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="form-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Rakesh Sharma | All Rights Reserved</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Scroll Reveal Animations
+    const scrollElements = document.querySelectorAll(".scroll-reveal");
+    const scrollReveal = () => {
+      scrollElements.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+          el.classList.add("active");
+        }
+      });
+    };
+    window.addEventListener("scroll", scrollReveal);
+    scrollReveal();
+    document.addEventListener("DOMContentLoaded", function () {
+      let slider = document.querySelector(".recommendations-slider");
+      let cards = document.querySelectorAll(".recommendation-card");
+      
+      if (slider && cards.length > 0) {
+        let index = 0;
+        
+        // Initialize the first card to be visible
+        cards.forEach((card, i) => {
+          if (i === 0) {
+            card.style.opacity = "1";
+          }
+        });
+
+        function slideRecommendations() {
+          index = (index + 1) % cards.length;
+          
+          // Move the slider
+          slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Set interval for automatic sliding
+        setInterval(slideRecommendations, 5000); // Slide every 5 seconds
+      }
+      
+      // Mobile menu toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          hamburger.classList.toggle('active');
+          
+          // Toggle hamburger icon
+          const icon = hamburger.querySelector('i');
+          if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+        
+        // Close menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+          item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          });
+        });
+      }
+      
+      // Add viewport height fix for mobile browsers
+      function setVH() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      setVH();
+      window.addEventListener('resize', setVH);
+    });
+  </script>
+  </body>
+  </html>
+  
