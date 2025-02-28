@@ -496,7 +496,7 @@
       margin-bottom: 1rem;
     }
     
-    /* Recommendations Section */
+    /* Recommendations Section - Fixed Layout */
     .recommendations-container {
       max-width: 900px;
       margin: 0 auto;
@@ -513,7 +513,7 @@
     .recommendation-card {
       min-width: 100%;
       flex-shrink: 0;
-      padding: 2rem;
+      padding: 2.5rem;
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -522,77 +522,79 @@
       transition: var(--transition);
       display: block;
       white-space: normal;
+      text-align: center;
+      position: relative;
     }
     
     .recommendation-text {
       font-style: italic;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      position: relative;
+      padding: 0 2rem;
     }
     
     .recommendation-text::before,
     .recommendation-text::after {
       content: '"';
-      font-size: 2rem;
+      font-size: 3rem;
       position: absolute;
       color: var(--accent);
-      opacity: 0.5;
+      opacity: 0.3;
       font-family: Georgia, serif;
     }
     
     .recommendation-text::before {
-      top: -10px;
+      top: -1.5rem;
       left: 0;
     }
     
     .recommendation-text::after {
-      bottom: -30px;
+      bottom: -3rem;
       right: 0;
     }
     
     .recommendation-author {
       display: flex;
+      flex-direction: column;
       align-items: center;
-    }
-    
-    .author-details {
-      margin-left: 15px;
+      justify-content: center;
+      margin-top: 1.5rem;
     }
     
     .author-name {
       font-weight: 600;
       color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
     }
     
     .author-title {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #666;
     }
     
+    /* Slider controls */
     .slider-controls {
       display: flex;
       justify-content: center;
       margin-top: 2rem;
     }
     
-    .slider-control {
-      width: 40px;
-      height: 40px;
+    .slider-dot {
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background-color: white;
-      color: var(--primary);
-      border: none;
-      margin: 0 10px;
+      background-color: #ddd;
+      margin: 0 6px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
-    .slider-control:hover {
-      background-color: var(--primary);
-      color: white;
+    .slider-dot.active {
+      background-color: var(--accent);
+      transform: scale(1.2);
     }
     
     /* Contact Section */
@@ -932,11 +934,13 @@
       }
       
       .recommendation-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        padding: 0 1.5rem;
+        line-height: 1.6;
       }
       
       .recommendation-card {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
       }
     }
     
@@ -984,6 +988,20 @@
       
       .footer-links a {
         margin: 0.5rem 0;
+      }
+      
+      .recommendation-text {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+      }
+      
+      .recommendation-text::before,
+      .recommendation-text::after {
+        font-size: 2rem;
+      }
+      
+      .recommendation-card {
+        padding: 1.5rem 1rem;
       }
     }
     
@@ -1183,50 +1201,51 @@
   
 <!-- Recommendations Section -->
 <section id="recommendations">
-    <div class="container">
-      <h2 class="section-title">Recommendations</h2>
-      <div class="recommendations-container">
-        <div class="recommendations-slider">
-          <div class="recommendation-card">
-            <p class="recommendation-text">“Rakesh is an exceptional professional with deep expertise in intellectual property. His leadership and mentoring abilities make him a valuable asset to any organization.”</p>
-            <div class="recommendation-author">
-              <div class="author-details">
-                <p class="author-name">Krishnakant Koneru</p>
-                <p class="author-title">Enterprise Solutions Architect @ Ericsson</p>
-              </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title">Recommendations</h2>
+    <div class="recommendations-container">
+      <div class="recommendations-slider">
+        <div class="recommendation-card">
+          <p class="recommendation-text">"Rakesh is an exceptional professional with deep expertise in intellectual property.</br>
+           His leadership and mentoring abilities make him a valuable asset to any organization."</p>
+          <div class="recommendation-author">
+            <p class="author-name">Krishnakant Koneru</p>
+            <p class="author-title">Enterprise Solutions Architect @ Ericsson</p>
           </div>
-          <div class="recommendation-card">
-            <p class="recommendation-text">“Rakesh is a great professional, easy to work with, and always willing to help his colleagues. His dedication and work ethics are impeccable.”</p>
-            <div class="recommendation-author">
-              <div class="author-details">
-                <p class="author-name">Suraj Arya</p>
-                <p class="author-title">Managing Associate-KPMG</p>
-              </div>
-            </div>
+        </div>
+        <div class="recommendation-card">
+          <p class="recommendation-text">"Rakesh is a great professional, easy to work with, and always willing to help his colleagues.</br>
+           His dedication and work ethics are impeccable."</p>
+          <div class="recommendation-author">
+            <p class="author-name">Suraj Arya</p>
+            <p class="author-title">Managing Associate-KPMG</p>
           </div>
-          <div class="recommendation-card">
-            <p class="recommendation-text">“Rakesh's expertise in patent drafting and prosecution is unmatched. His insights and leadership skills greatly benefit any team.”</p>
-            <div class="recommendation-author">
-              <div class="author-details">
-                <p class="author-name">Sonia Buntel</p>
-                <p class="author-title">Intellectual Property Expert</p>
-              </div>
-            </div>
+        </div>
+        <div class="recommendation-card">
+          <p class="recommendation-text">"Rakesh's expertise in patent drafting and prosecution is unmatched. </br>
+          His insights and leadership skills greatly benefit any team."</p>
+          <div class="recommendation-author">
+            <p class="author-name">Sonia Buntel</p>
+            <p class="author-title">Intellectual Property Expert</p>
           </div>
-          <div class="recommendation-card">
-            <p class="recommendation-text">“Rakesh is an excellent mentor who helped boost my confidence and provided valuable guidance in the patent field.”</p>
-            <div class="recommendation-author">
-              <div class="author-details">
-                <p class="author-name">Shelly Marya</p>
-                <p class="author-title">IP Sales Expert @ Kurukshetra University</p>
-              </div>
-            </div>
+        </div>
+        <div class="recommendation-card">
+          <p class="recommendation-text">"Rakesh is an excellent mentor who helped boost my confidence and provided valuable guidance in the patent field."</p>
+          <div class="recommendation-author">
+            <p class="author-name">Shelly Marya</p>
+            <p class="author-title">IP Sales Expert @ Kurukshetra University</p>
           </div>
         </div>
       </div>
+      <div class="slider-controls">
+        <div class="slider-dot active" data-index="0"></div>
+        <div class="slider-dot" data-index="1"></div>
+        <div class="slider-dot" data-index="2"></div>
+        <div class="slider-dot" data-index="3"></div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
   
   <!-- Contact Section -->
   <section id="contact">
@@ -1281,28 +1300,58 @@
     window.addEventListener("scroll", scrollReveal);
     scrollReveal();
     document.addEventListener("DOMContentLoaded", function () {
-      let slider = document.querySelector(".recommendations-slider");
-      let cards = document.querySelectorAll(".recommendation-card");
+      // Recommendations slider
+      const slider = document.querySelector(".recommendations-slider");
+      const dots = document.querySelectorAll(".slider-dot");
       
-      if (slider && cards.length > 0) {
-        let index = 0;
+      if (slider && dots.length > 0) {
+        let currentIndex = 0;
         
-        // Initialize the first card to be visible
-        cards.forEach((card, i) => {
-          if (i === 0) {
-            card.style.opacity = "1";
-          }
-        });
-
-        function slideRecommendations() {
-          index = (index + 1) % cards.length;
-          
-          // Move the slider
+        // Function to update the slider position
+        function updateSlider(index) {
           slider.style.transform = `translateX(-${index * 100}%)`;
+          
+          // Update active dot
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+          
+          currentIndex = index;
         }
-
+        
+        // Add click event to dots
+        dots.forEach(dot => {
+          dot.addEventListener("click", function() {
+            const index = parseInt(this.getAttribute("data-index"));
+            updateSlider(index);
+          });
+        });
+        
+        // Auto slide
+        function autoSlide() {
+          const nextIndex = (currentIndex + 1) % dots.length;
+          updateSlider(nextIndex);
+        }
+        
         // Set interval for automatic sliding
-        setInterval(slideRecommendations, 5000); // Slide every 5 seconds
+        const slideInterval = setInterval(autoSlide, 5000);
+        
+        // Pause auto slide when hovering over the slider
+        const recommendationsContainer = document.querySelector(".recommendations-container");
+        if (recommendationsContainer) {
+          recommendationsContainer.addEventListener("mouseenter", function() {
+            clearInterval(slideInterval);
+          });
+          
+          recommendationsContainer.addEventListener("mouseleave", function() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(autoSlide, 5000);
+          });
+        }
       }
       
       // Mobile menu toggle
