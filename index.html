@@ -1011,29 +1011,195 @@
         height: -webkit-fill-available;
       }
     }
+        :root {
+      --primary: #0a2463;
+      --secondary: #247ba0;
+      --accent: #70c1b3;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --transition: all 0.3s ease-in-out;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .hero-quote {
+      font-size: 1rem;
+      font-style: italic;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-left: 4px solid var(--accent);
+      border-radius: 5px;
+      max-width: 90%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    
+    .recommendations-slider {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+    
+    .recommendation-card {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    
+    .recommendation-text {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .recommendation-author {
+      margin-top: 10px;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .author-title {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-quote {
+        font-size: 0.9rem;
+      }
+      .profile-img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+    .hero {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   padding: 100px 20px;
+}
+.hero-quote {
+   max-width: 80%;
+}
+.profile-img {
+   width: 200px;
+   height: 200px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-top: 20px;
+}
+.recommendations-slider {
+   display: flex;
+   overflow: hidden;
+   width: 100%;
+   position: relative;
+   white-space: nowrap;
+}
+
+.recommendation-card {
+   min-width: 100%;
+   box-sizing: border-box;
+   padding: 1.5rem;
+   background-color: white;
+   border-radius: 10px;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+   text-align: center;
+   display: inline-block;
+}
+
   </style>
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header id="header">
+    <header>
     <div class="container">
+      <h1 class="logo">Rakesh Sharma</h1>
       <nav>
-        <div class="logo">Rakesh Sharma</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#volunteering">Volunteering</a></li>
-          <li><a href="#recommendations">Recommendations</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
+   <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#volunteering">Volunteering</a></li>
+      <li><a href="#recommendations">Recommendations</a></li>
+      <li><a href="#contact">Contact</a></li>
+   </ul>
+</nav>
+
     </div>
   </header>
+
+
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -1287,116 +1453,79 @@
     </div>
   </footer>
   
-  <script>
-    // Scroll Reveal Animations
-    const scrollElements = document.querySelectorAll(".scroll-reveal");
-    const scrollReveal = () => {
-      scrollElements.forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
-          el.classList.add("active");
+<script>
+  // Scroll Reveal Animations
+  const scrollElements = document.querySelectorAll(".scroll-reveal");
+  const scrollReveal = () => {
+    scrollElements.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+        el.classList.add("active");
+      }
+    });
+  };
+  window.addEventListener("scroll", scrollReveal);
+  scrollReveal();
+
+  // Recommendations slider
+  document.addEventListener("DOMContentLoaded", function () {
+    let slider = document.querySelector(".recommendations-slider");
+    let cards = document.querySelectorAll(".recommendation-card");
+    let index = 0;
+
+    function slideRecommendations() {
+      index = (index + 1) % cards.length;
+      let offset = index * -100;
+      slider.style.transform = `translateX(${offset}%)`;
+      slider.style.transition = "transform 0.5s ease-in-out";
+    }
+
+    setInterval(slideRecommendations, 2000);
+  });
+
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        
+        // Toggle hamburger icon
+        const icon = hamburger.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
         }
       });
-    };
-    window.addEventListener("scroll", scrollReveal);
-    scrollReveal();
-    document.addEventListener("DOMContentLoaded", function () {
-      // Recommendations slider
-      const slider = document.querySelector(".recommendations-slider");
-      const dots = document.querySelectorAll(".slider-dot");
-      
-      if (slider && dots.length > 0) {
-        let currentIndex = 0;
-        
-        // Function to update the slider position
-        function updateSlider(index) {
-          slider.style.transform = `translateX(-${index * 100}%)`;
-          
-          // Update active dot
-          dots.forEach((dot, i) => {
-            if (i === index) {
-              dot.classList.add("active");
-            } else {
-              dot.classList.remove("active");
-            }
-          });
-          
-          currentIndex = index;
-        }
-        
-        // Add click event to dots
-        dots.forEach(dot => {
-          dot.addEventListener("click", function() {
-            const index = parseInt(this.getAttribute("data-index"));
-            updateSlider(index);
-          });
-        });
-        
-        // Auto slide
-        function autoSlide() {
-          const nextIndex = (currentIndex + 1) % dots.length;
-          updateSlider(nextIndex);
-        }
-        
-        // Set interval for automatic sliding
-        const slideInterval = setInterval(autoSlide, 5000);
-        
-        // Pause auto slide when hovering over the slider
-        const recommendationsContainer = document.querySelector(".recommendations-container");
-        if (recommendationsContainer) {
-          recommendationsContainer.addEventListener("mouseenter", function() {
-            clearInterval(slideInterval);
-          });
-          
-          recommendationsContainer.addEventListener("mouseleave", function() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(autoSlide, 5000);
-          });
-        }
-      }
-      
-      // Mobile menu toggle
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-          hamburger.classList.toggle('active');
-          
-          // Toggle hamburger icon
+
+      // Close menu when clicking on a link
+      const navItems = document.querySelectorAll('.nav-links a');
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
           const icon = hamburger.querySelector('i');
-          if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-          } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-          }
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
         });
-        
-        // Close menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-          item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-          });
-        });
-      }
-      
-      // Add viewport height fix for mobile browsers
-      function setVH() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-      
-      setVH();
-      window.addEventListener('resize', setVH);
-    });
-  </script>
+      });
+    }
+  });
+
+  // Fix viewport height issues on mobile browsers
+  function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  setVH();
+  window.addEventListener('resize', setVH);
+</script>
+
   </body>
   </html>
   
