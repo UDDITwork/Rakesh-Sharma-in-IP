@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rakesh Sharma | IP Strategist & Patent Consultant</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    /* Root Variables & Reset */
     :root {
       --primary: #0a2463;
       --secondary: #247ba0;
@@ -14,14 +15,14 @@
       --dark: #212529;
       --transition: all 0.3s ease-in-out;
     }
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    html {
       scroll-behavior: smooth;
     }
-    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--light);
@@ -29,7 +30,14 @@
       overflow-x: hidden;
       line-height: 1.6;
     }
-    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
     header {
       position: fixed;
       top: 0;
@@ -40,54 +48,39 @@
       z-index: 1000;
       transition: var(--transition);
     }
-    
     header.scrolled {
       padding: 0.5rem 0;
       background-color: rgba(255, 255, 255, 0.98);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 0;
     }
-    
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--primary);
     }
-    
     .nav-links {
       display: flex;
       list-style: none;
     }
-    
     .nav-links li {
       margin-left: 2rem;
     }
-    
     .nav-links a {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
-      transition: var(--transition);
       position: relative;
+      transition: var(--transition);
     }
-    
     .nav-links a:hover {
       color: var(--secondary);
     }
-    
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -98,90 +91,64 @@
       background-color: var(--secondary);
       transition: var(--transition);
     }
-    
     .nav-links a:hover::after {
       width: 100%;
     }
-    
     .hamburger {
       display: none;
       cursor: pointer;
     }
-    
+
     /* Hero Section */
     .hero {
-      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       position: relative;
       overflow: hidden;
     }
-    
     .hero-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      z-index: 1;
+      flex-wrap: wrap;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 1s forwards 0.5s;
     }
-    
     .hero-text {
       max-width: 600px;
-      padding-right: 2rem;
+      padding: 1rem;
     }
-    
     .hero-title {
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       color: var(--primary);
     }
-    
     .hero-subtitle {
       font-size: 1.2rem;
       color: var(--secondary);
       margin-bottom: 2rem;
     }
-    
     .hero-quote {
       font-size: 1.1rem;
       font-style: italic;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9);
       border-left: 4px solid var(--accent);
-      border-radius: 0 10px 10px 0;
+      border-radius: 5px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
       position: relative;
     }
-    
-    .hero-quote::before,
-    .hero-quote::after {
-      content: '"';
-      font-size: 4rem;
-      position: absolute;
-      opacity: 0.2;
-      font-family: Georgia, serif;
-    }
-    
-    .hero-quote::before {
-      top: -10px;
-      left: 5px;
-    }
-    
-    .hero-quote::after {
-      bottom: -45px;
-      right: 5px;
-    }
-    
     .hero-image {
       position: relative;
+      margin-top: 1rem;
     }
-    
     .profile-img {
       width: 300px;
       height: 300px;
@@ -191,11 +158,9 @@
       border: 5px solid white;
       transition: transform 0.5s ease;
     }
-    
     .profile-img:hover {
       transform: scale(1.05);
     }
-    
     .image-glow {
       position: absolute;
       top: 0;
@@ -207,12 +172,10 @@
       z-index: -1;
       animation: pulse 3s infinite;
     }
-    
     .social-links {
       display: flex;
       margin-top: 2rem;
     }
-    
     .social-links a {
       display: flex;
       align-items: center;
@@ -227,31 +190,27 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
     }
-    
     .social-links a:hover {
       transform: translateY(-5px);
       background-color: var(--primary);
       color: white;
     }
-    
-    /* Sections */
+
+    /* Sections Base */
     section {
       padding: 6rem 0;
       position: relative;
     }
-    
     section:nth-child(even) {
       background-color: #f8f9fa;
     }
-    
     .section-title {
       font-size: 2.2rem;
       text-align: center;
       margin-bottom: 4rem;
-      position: relative;
       color: var(--primary);
+      position: relative;
     }
-    
     .section-title::after {
       content: '';
       position: absolute;
@@ -262,14 +221,13 @@
       height: 3px;
       background-color: var(--accent);
     }
-    
+
     /* Expertise Section */
     .expertise-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    
     .expertise-card {
       background-color: white;
       padding: 2rem;
@@ -279,35 +237,30 @@
       opacity: 0;
       transform: translateY(30px);
     }
-    
     .expertise-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
-    
-    .expertise-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--secondary);
-    }
-    
-    .expertise-card p {
-      color: #666;
-    }
-    
     .expertise-icon {
       font-size: 2.5rem;
       color: var(--accent);
       margin-bottom: 1.5rem;
     }
-    
+    .expertise-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    .expertise-card p {
+      color: #666;
+    }
+
     /* Experience Section */
     .timeline {
       position: relative;
       max-width: 800px;
-      margin: 0 auto;
+      margin: auto;
     }
-    
     .timeline::after {
       content: '';
       position: absolute;
@@ -316,9 +269,8 @@
       top: 0;
       bottom: 0;
       left: 50%;
-      margin-left: -2px;
+      transform: translateX(-50%);
     }
-    
     .timeline-item {
       padding: 10px 40px;
       position: relative;
@@ -326,55 +278,30 @@
       opacity: 0;
       transform: translateX(-30px);
     }
-    
     .timeline-item::after {
       content: '';
       position: absolute;
       width: 20px;
       height: 20px;
-      right: -10px;
       background-color: white;
       border: 4px solid var(--accent);
       top: 15px;
       border-radius: 50%;
       z-index: 1;
     }
-    
     .timeline-item.right {
       left: 50%;
       transform: translateX(30px);
     }
-    
     .timeline-item.right::after {
       left: -10px;
     }
-    
     .timeline-content {
       padding: 20px 30px;
       background-color: white;
-      position: relative;
       border-radius: 6px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    
-    .timeline-content h3 {
-      margin: 0;
-      color: var(--secondary);
-      font-size: 1.2rem;
-    }
-    
-    .timeline-content h4 {
-      margin: 10px 0;
-      color: var(--dark);
-      font-size: 0.9rem;
-      font-weight: normal;
-    }
-    
-    .timeline-content p {
-      margin: 15px 0 0;
-      font-size: 0.95rem;
-    }
-    
     .timeline-date {
       position: absolute;
       width: 150px;
@@ -386,23 +313,35 @@
       top: 12px;
       font-size: 0.8rem;
     }
-    
-    .left .timeline-date {
+    .timeline-item.left .timeline-date {
       right: -175px;
     }
-    
-    .right .timeline-date {
+    .timeline-item.right .timeline-date {
       left: -175px;
     }
-    
+    .timeline-content h3 {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .timeline-content h4 {
+      color: var(--dark);
+      font-size: 0.9rem;
+      margin: 10px 0;
+      font-weight: normal;
+    }
+    .timeline-content p {
+      font-size: 0.95rem;
+      margin-top: 15px;
+    }
+
     /* Education Section */
     .education-container {
       display: flex;
       flex-direction: column;
       max-width: 800px;
-      margin: 0 auto;
+      margin: auto;
     }
-    
     .education-item {
       background-color: white;
       padding: 2rem;
@@ -410,32 +349,27 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       margin-bottom: 2rem;
       transition: var(--transition);
-      position: relative;
       opacity: 0;
       transform: translateY(30px);
+      position: relative;
     }
-    
     .education-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
-    
     .education-item h3 {
+      color: var(--secondary);
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
-      color: var(--secondary);
     }
-    
     .education-item h4 {
+      color: var(--primary);
       font-size: 1rem;
       margin-bottom: 1rem;
-      color: var(--primary);
     }
-    
     .education-item p {
       color: #666;
     }
-    
     .education-date {
       position: absolute;
       top: 0;
@@ -446,46 +380,40 @@
       border-radius: 0 10px 0 10px;
       font-size: 0.8rem;
     }
-    
+
     /* Volunteering Section */
     .volunteering-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    
     .volunteering-card {
       background-color: white;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       transition: var(--transition);
-      height: 100%;
       opacity: 0;
       transform: translateY(30px);
+      height: 100%;
     }
-    
     .volunteering-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
-    
     .volunteering-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--secondary);
     }
-    
     .volunteering-card h4 {
       font-size: 1rem;
       margin-bottom: 1rem;
       color: var(--primary);
     }
-    
     .volunteering-card p {
       color: #666;
     }
-    
     .volunteering-date {
       display: inline-block;
       background-color: var(--accent);
@@ -495,46 +423,37 @@
       font-size: 0.8rem;
       margin-bottom: 1rem;
     }
-    
-    /* Recommendations Section - Fixed Layout */
+
+    /* Recommendations Section */
     .recommendations-container {
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
       position: relative;
       overflow: hidden;
+      padding: 1rem;
     }
-    
     .recommendations-slider {
       display: flex;
       transition: transform 0.5s ease-in-out;
       width: 100%;
     }
-    
     .recommendation-card {
       min-width: 100%;
-      flex-shrink: 0;
-      padding: 2.5rem;
+      box-sizing: border-box;
+      padding: 2rem;
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-      opacity: 1;
-      transform: translateY(0);
-      transition: var(--transition);
-      display: block;
-      white-space: normal;
       text-align: center;
-      position: relative;
     }
-    
     .recommendation-text {
       font-style: italic;
-      margin-bottom: 2rem;
       font-size: 1.1rem;
+      margin-bottom: 2rem;
       line-height: 1.8;
       position: relative;
       padding: 0 2rem;
     }
-    
     .recommendation-text::before,
     .recommendation-text::after {
       content: '"';
@@ -544,44 +463,35 @@
       opacity: 0.3;
       font-family: Georgia, serif;
     }
-    
     .recommendation-text::before {
       top: -1.5rem;
       left: 0;
     }
-    
     .recommendation-text::after {
       bottom: -3rem;
       right: 0;
     }
-    
     .recommendation-author {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       margin-top: 1.5rem;
     }
-    
     .author-name {
       font-weight: 600;
       color: var(--primary);
       font-size: 1.1rem;
       margin-bottom: 0.3rem;
     }
-    
     .author-title {
       font-size: 0.9rem;
       color: #666;
     }
-    
-    /* Slider controls */
     .slider-controls {
       display: flex;
       justify-content: center;
       margin-top: 2rem;
     }
-    
     .slider-dot {
       width: 12px;
       height: 12px;
@@ -591,38 +501,30 @@
       cursor: pointer;
       transition: var(--transition);
     }
-    
     .slider-dot.active {
       background-color: var(--accent);
       transform: scale(1.2);
     }
-    
+
     /* Contact Section */
     .contact-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
     }
-    
-    .contact-info {
-      flex: 1;
-      min-width: 300px;
-      padding-right: 2rem;
-    }
-    
+    .contact-info,
     .contact-form {
       flex: 1;
       min-width: 300px;
+      padding: 1rem;
     }
-    
     .contact-item {
       display: flex;
       align-items: center;
       margin-bottom: 1.5rem;
     }
-    
     .contact-icon {
       width: 40px;
       height: 40px;
@@ -634,11 +536,9 @@
       color: white;
       margin-right: 1rem;
     }
-    
     .form-group {
       margin-bottom: 1.5rem;
     }
-    
     .form-input {
       width: 100%;
       padding: 12px 15px;
@@ -647,13 +547,11 @@
       font-size: 1rem;
       transition: var(--transition);
     }
-    
     .form-input:focus {
       outline: none;
       border-color: var(--secondary);
       box-shadow: 0 0 0 2px rgba(36, 123, 160, 0.2);
     }
-    
     .form-button {
       padding: 12px 25px;
       background-color: var(--primary);
@@ -663,12 +561,12 @@
       font-size: 1rem;
       cursor: pointer;
       transition: var(--transition);
+      width: 100%;
     }
-    
     .form-button:hover {
       background-color: var(--secondary);
     }
-    
+
     /* Footer */
     footer {
       background-color: var(--primary);
@@ -676,28 +574,20 @@
       padding: 3rem 0;
       text-align: center;
     }
-    
     .footer-links {
       display: flex;
       justify-content: center;
       margin-bottom: 2rem;
     }
-    
     .footer-links a {
       color: white;
       margin: 0 15px;
       text-decoration: none;
       transition: var(--transition);
     }
-    
     .footer-links a:hover {
       color: var(--accent);
     }
-    
-    .footer-social {
-      margin-bottom: 2rem;
-    }
-    
     .footer-social a {
       display: inline-flex;
       align-items: center;
@@ -711,17 +601,15 @@
       text-decoration: none;
       transition: var(--transition);
     }
-    
     .footer-social a:hover {
       background-color: var(--accent);
       transform: translateY(-5px);
     }
-    
     .footer-bottom {
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     /* Animations */
     @keyframes fadeInUp {
       from {
@@ -733,33 +621,21 @@
         transform: translateY(0);
       }
     }
-    
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 0.7;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
     }
-    
     .scroll-reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    
     .scroll-reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     /* Parallax Backgrounds */
     .parallax-bg {
       position: absolute;
@@ -774,15 +650,11 @@
       z-index: -1;
       opacity: 0.1;
     }
-    
-    #expertise-bg {
-      background-image: url('/api/placeholder/1000/600');
-    }
-    
+    #expertise-bg,
     #experience-bg {
-      background-image: url('/api/placeholder/1000/600');
+      background-image: url('https://via.placeholder.com/1000x600');
     }
-    
+
     /* Back To Top Button */
     .back-to-top {
       position: fixed;
@@ -802,93 +674,31 @@
       transform: translateY(20px);
       transition: var(--transition);
     }
-    
     .back-to-top.active {
       opacity: 1;
       transform: translateY(0);
     }
-    
     .back-to-top:hover {
       background-color: var(--secondary);
     }
-    
+
     /* Responsive Enhancements */
-    @media (max-width: 1200px) {
-      .container {
-        width: 95%;
-      }
-    }
-    
     @media (max-width: 992px) {
-      .hero-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .hero-text {
-        padding-right: 0;
-        margin-bottom: 3rem;
-      }
-      
-      .timeline::after {
-        left: 31px;
-      }
-      
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-      
-      .timeline-item::after {
-        left: 21px;
-      }
-      
-      .timeline-item.right {
-        left: 0;
-      }
-      
-      .timeline-date {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        margin-bottom: 10px;
-        display: inline-block;
-      }
-      
-      .contact-container {
-        flex-direction: column;
-      }
-      
-      .contact-info {
-        padding-right: 0;
-        margin-bottom: 2rem;
-      }
-      
-      .expertise-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .profile-img {
-        width: 250px;
-        height: 250px;
-      }
+      .container { width: 95%; }
+      .hero-content { flex-direction: column; }
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::after { left: 21px; }
+      .timeline-item.right { left: 0; transform: translateX(30px); }
+      .timeline-date { position: relative; margin-bottom: 10px; display: inline-block; }
+      .contact-container { flex-direction: column; }
+      .expertise-container { grid-template-columns: repeat(2, 1fr); }
+      .profile-img { width: 250px; height: 250px; }
     }
-    
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .hero-title {
-        font-size: 2rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-      
+      .section-title { font-size: 1.8rem; }
+      .hero-title { font-size: 2rem; }
+      .hero-subtitle { font-size: 1rem; }
       .nav-links {
         position: fixed;
         top: 80px;
@@ -904,303 +714,57 @@
         transition: var(--transition);
         z-index: 999;
       }
-      
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      
-      .nav-links li {
-        margin: 1rem 0;
-      }
-      
-      .hamburger {
-        display: block;
-        z-index: 1000;
-      }
-      
-      .expertise-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .profile-img {
-        width: 200px;
-        height: 200px;
-      }
-      
-      .hero {
-        height: auto;
-        padding: 120px 0 60px;
-      }
-      
-      .recommendation-text {
-        font-size: 1rem;
-        padding: 0 1.5rem;
-        line-height: 1.6;
-      }
-      
-      .recommendation-card {
-        padding: 2rem 1.5rem;
-      }
+      .nav-links.active { transform: translateY(0); opacity: 1; }
+      .nav-links li { margin: 1rem 0; }
+      .hamburger { display: block; z-index: 1000; }
+      .expertise-container { grid-template-columns: 1fr; }
+      .profile-img { width: 200px; height: 200px; }
+      .hero { height: auto; padding: 120px 0 60px; }
+      .recommendation-text { font-size: 1rem; padding: 0 1.5rem; line-height: 1.6; }
+      .recommendation-card { padding: 2rem 1.5rem; }
     }
-    
     @media (max-width: 480px) {
-      .hero-quote {
-        padding: 1.5rem;
-        font-size: 0.9rem;
-      }
-      
-      .profile-img {
-        width: 180px;
-        height: 180px;
-      }
-      
-      .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 2.5rem;
-      }
-      
-      .expertise-card, 
-      .education-item, 
-      .volunteering-card {
-        padding: 1.5rem;
-      }
-      
-      .timeline-content {
-        padding: 15px;
-      }
-      
-      .timeline-content h3 {
-        font-size: 1.1rem;
-      }
-      
-      .form-button {
-        width: 100%;
-      }
-      
-      section {
-        padding: 4rem 0;
-      }
-      
-      .footer-links {
-        flex-direction: column;
-      }
-      
-      .footer-links a {
-        margin: 0.5rem 0;
-      }
-      
-      .recommendation-text {
-        font-size: 0.9rem;
-        padding: 0 1rem;
-      }
-      
-      .recommendation-text::before,
-      .recommendation-text::after {
-        font-size: 2rem;
-      }
-      
-      .recommendation-card {
-        padding: 1.5rem 1rem;
-      }
+      .hero-quote { padding: 1.5rem; font-size: 0.9rem; }
+      .profile-img { width: 180px; height: 180px; }
+      .section-title { font-size: 1.6rem; margin-bottom: 2.5rem; }
+      .expertise-card, .education-item, .volunteering-card { padding: 1.5rem; }
+      .timeline-content { padding: 15px; }
+      .timeline-content h3 { font-size: 1.1rem; }
+      .form-button { width: 100%; }
+      section { padding: 4rem 0; }
+      .footer-links { flex-direction: column; }
+      .footer-links a { margin: 0.5rem 0; }
+      .recommendation-text { font-size: 0.9rem; padding: 0 1rem; }
+      .recommendation-text::before, .recommendation-text::after { font-size: 2rem; }
+      .recommendation-card { padding: 1.5rem 1rem; }
     }
-    
-    /* Fix for iOS Safari 100vh issue */
+    /* iOS Safari 100vh fix */
     @supports (-webkit-touch-callout: none) {
-      .hero {
-        height: -webkit-fill-available;
-      }
+      .hero { height: -webkit-fill-available; }
     }
-        :root {
-      --primary: #0a2463;
-      --secondary: #247ba0;
-      --accent: #70c1b3;
-      --light: #f8f9fa;
-      --dark: #212529;
-      --transition: all 0.3s ease-in-out;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-    
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-    
-    .hero-title {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-    
-    .hero-quote {
-      font-size: 1rem;
-      font-style: italic;
-      padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-left: 4px solid var(--accent);
-      border-radius: 5px;
-      max-width: 90%;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-    }
-    
-    .recommendations-slider {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-    
-    .recommendation-card {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 1.5rem;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    
-    .recommendation-text {
-      font-style: italic;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .recommendation-author {
-      margin-top: 10px;
-    }
-    
-    .author-name {
-      font-weight: 600;
-      color: var(--primary);
-    }
-    
-    .author-title {
-      font-size: 0.85rem;
-      color: #666;
-    }
-    
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 1.8rem;
-      }
-      .hero-quote {
-        font-size: 0.9rem;
-      }
-      .profile-img {
-        width: 180px;
-        height: 180px;
-      }
-    }
-    .hero {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-   padding: 100px 20px;
-}
-.hero-quote {
-   max-width: 80%;
-}
-.profile-img {
-   width: 200px;
-   height: 200px;
-   border-radius: 50%;
-   object-fit: cover;
-   margin-top: 20px;
-}
-.recommendations-slider {
-   display: flex;
-   overflow: hidden;
-   width: 100%;
-   position: relative;
-   white-space: nowrap;
-}
-
-.recommendation-card {
-   min-width: 100%;
-   box-sizing: border-box;
-   padding: 1.5rem;
-   background-color: white;
-   border-radius: 10px;
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-   text-align: center;
-   display: inline-block;
-}
-
   </style>
 </head>
 <body>
-    <header>
+  <header>
     <div class="container">
       <h1 class="logo">Rakesh Sharma</h1>
       <nav>
-   <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#volunteering">Volunteering</a></li>
-      <li><a href="#recommendations">Recommendations</a></li>
-      <li><a href="#contact">Contact</a></li>
-   </ul>
-</nav>
-
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#recommendations">Recommendations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
     </div>
   </header>
-
-
-
+  
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
@@ -1209,7 +773,7 @@
           <h1 class="hero-title">IP Strategist & Patent Consultant</h1>
           <h2 class="hero-subtitle">Transforming Innovations into Assets</h2>
           <div class="hero-quote">
-            I am an IP professional, Patent Consultant, and Technology Strategist with expertise in Patent Law, Drafting, Prosecution, and Portfolio Management. Having worked with leading organizations like XLSCOUT, Honeywell, and TT Consultants, I specialize in simplifying complex IP concepts, mentoring professionals, and driving innovation through strategic IP solutions.
+            I am an IP professional, Patent Consultant, and Technology Strategist with expertise in Patent Law, Drafting, Prosecution, and Portfolio Management. I've collaborated with leading organizations to drive innovation through strategic IP solutions.
           </div>
           <div class="social-links">
             <a href="https://linkedin.com/in/rakesh-sharma-b595baa2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -1219,12 +783,12 @@
         </div>
         <div class="hero-image">
           <div class="image-glow"></div>
-          <img src="https://media.licdn.com/dms/image/v2/C4E03AQF2hB_sNgt-zA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1630930610799?e=1746057600&v=beta&t=cK_OYSXyGQKBLNy-S2SAYZIcYhqtsoClWTduF-KQ9Ko" alt="Rakesh Sharma" class="profile-img" onerror="this.src='/api/placeholder/400/400';this.onerror='';">
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQF2hB_sNgt-zA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1630930610799?e=1746057600&v=beta&t=cK_OYSXyGQKBLNy-S2SAYZIcYhqtsoClWTduF-KQ9Ko" alt="Rakesh Sharma" class="profile-img" onerror="this.src='https://via.placeholder.com/400';">
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Expertise Section -->
   <section id="expertise">
     <div class="parallax-bg" id="expertise-bg"></div>
@@ -1264,7 +828,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Experience Section -->
   <section id="experience">
     <div class="parallax-bg" id="experience-bg"></div>
@@ -1284,7 +848,7 @@
           <div class="timeline-content">
             <h3>Product Consultant</h3>
             <h4>XLSCOUT</h4>
-            <p>Solution architect for IP automation, idea screening using Explainable AI, technology landscapes, and competitive intelligence.</p>
+            <p>Solution architect for IP automation, idea screening using Explainable AI, and competitive intelligence.</p>
           </div>
         </div>
         <div class="timeline-item left scroll-reveal">
@@ -1308,14 +872,14 @@
           <div class="timeline-content">
             <h3>Senior Research Associate</h3>
             <h4>Virtual Employee Pvt. Ltd.</h4>
-            <p>Patent search & analytics, patent drafting, and prosecution. Conducted IDF reviews and inventor interviews.</p>
+            <p>Conducted patent searches, drafting, and prosecution along with inventor interviews.</p>
           </div>
         </div>
         <div class="timeline-item right scroll-reveal">
           <div class="timeline-date">May 2015 - Dec 2015</div>
           <div class="timeline-content">
             <h3>Patent Associate</h3>
-            <h4>Perfexio Legal Attorney's at Law</h4>
+            <h4>Perfexio Legal Attorney's</h4>
             <p>Specialized in patent law and intellectual property services.</p>
           </div>
         </div>
@@ -1324,7 +888,7 @@
           <div class="timeline-content">
             <h3>Patent Research Analyst</h3>
             <h4>TT Consultants</h4>
-            <p>Conducted patentability searches, invalidity searches, infringement analysis, and FTO analysis using various databases.</p>
+            <p>Conducted patent searches, infringement analysis, and freedom-to-operate evaluations.</p>
           </div>
         </div>
       </div>
@@ -1365,53 +929,50 @@
     </div>
   </section>
   
-<!-- Recommendations Section -->
-<section id="recommendations">
-  <div class="container">
-    <h2 class="section-title">Recommendations</h2>
-    <div class="recommendations-container">
-      <div class="recommendations-slider">
-        <div class="recommendation-card">
-          <p class="recommendation-text">"Rakesh is an exceptional professional with deep expertise in intellectual property.</br>
-           His leadership and mentoring abilities make him a valuable asset to any organization."</p>
-          <div class="recommendation-author">
-            <p class="author-name">Krishnakant Koneru</p>
-            <p class="author-title">Enterprise Solutions Architect @ Ericsson</p>
+  <!-- Recommendations Section -->
+  <section id="recommendations">
+    <div class="container">
+      <h2 class="section-title">Recommendations</h2>
+      <div class="recommendations-container">
+        <div class="recommendations-slider">
+          <div class="recommendation-card">
+            <p class="recommendation-text">"Rakesh is an exceptional professional with deep expertise in intellectual property. His leadership and mentoring abilities make him a valuable asset to any organization."</p>
+            <div class="recommendation-author">
+              <p class="author-name">Krishnakant Koneru</p>
+              <p class="author-title">Enterprise Solutions Architect @ Ericsson</p>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">"Rakesh is a great professional, easy to work with, and always willing to help his colleagues. His dedication and work ethics are impeccable."</p>
+            <div class="recommendation-author">
+              <p class="author-name">Suraj Arya</p>
+              <p class="author-title">Managing Associate - KPMG</p>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">"Rakesh's expertise in patent drafting and prosecution is unmatched. His insights and leadership skills greatly benefit any team."</p>
+            <div class="recommendation-author">
+              <p class="author-name">Sonia Buntel</p>
+              <p class="author-title">Intellectual Property Expert</p>
+            </div>
+          </div>
+          <div class="recommendation-card">
+            <p class="recommendation-text">"Rakesh is an excellent mentor who boosted my confidence and provided valuable guidance in the patent field."</p>
+            <div class="recommendation-author">
+              <p class="author-name">Shelly Marya</p>
+              <p class="author-title">IP Sales Expert @ Kurukshetra University</p>
+            </div>
           </div>
         </div>
-        <div class="recommendation-card">
-          <p class="recommendation-text">"Rakesh is a great professional, easy to work with, and always willing to help his colleagues.</br>
-           His dedication and work ethics are impeccable."</p>
-          <div class="recommendation-author">
-            <p class="author-name">Suraj Arya</p>
-            <p class="author-title">Managing Associate-KPMG</p>
-          </div>
+        <div class="slider-controls">
+          <div class="slider-dot active" data-index="0"></div>
+          <div class="slider-dot" data-index="1"></div>
+          <div class="slider-dot" data-index="2"></div>
+          <div class="slider-dot" data-index="3"></div>
         </div>
-        <div class="recommendation-card">
-          <p class="recommendation-text">"Rakesh's expertise in patent drafting and prosecution is unmatched. </br>
-          His insights and leadership skills greatly benefit any team."</p>
-          <div class="recommendation-author">
-            <p class="author-name">Sonia Buntel</p>
-            <p class="author-title">Intellectual Property Expert</p>
-          </div>
-        </div>
-        <div class="recommendation-card">
-          <p class="recommendation-text">"Rakesh is an excellent mentor who helped boost my confidence and provided valuable guidance in the patent field."</p>
-          <div class="recommendation-author">
-            <p class="author-name">Shelly Marya</p>
-            <p class="author-title">IP Sales Expert @ Kurukshetra University</p>
-          </div>
-        </div>
-      </div>
-      <div class="slider-controls">
-        <div class="slider-dot active" data-index="0"></div>
-        <div class="slider-dot" data-index="1"></div>
-        <div class="slider-dot" data-index="2"></div>
-        <div class="slider-dot" data-index="3"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   
   <!-- Contact Section -->
   <section id="contact">
@@ -1425,7 +986,7 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-            <p><a href="https://linkedin.com/in/rakesh-sharma-b595baa2">LinkedIn</a></p>
+            <p><a href="https://linkedin.com/in/rakesh-sharma-b595baa2" target="_blank">LinkedIn</a></p>
           </div>
         </div>
         <div class="contact-form scroll-reveal">
@@ -1449,83 +1010,106 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Rakesh Sharma | All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#volunteering">Volunteering</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://linkedin.com/in/rakesh-sharma-b595baa2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:errs404@gmail.com"><i class="far fa-envelope"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rakesh Sharma | All Rights Reserved</p>
+      </div>
     </div>
   </footer>
   
-<script>
-  // Scroll Reveal Animations
-  const scrollElements = document.querySelectorAll(".scroll-reveal");
-  const scrollReveal = () => {
-    scrollElements.forEach((el) => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
-        el.classList.add("active");
-      }
-    });
-  };
-  window.addEventListener("scroll", scrollReveal);
-  scrollReveal();
-
-  // Recommendations slider
-  document.addEventListener("DOMContentLoaded", function () {
-    let slider = document.querySelector(".recommendations-slider");
-    let cards = document.querySelectorAll(".recommendation-card");
-    let index = 0;
-
-    function slideRecommendations() {
-      index = (index + 1) % cards.length;
-      let offset = index * -100;
-      slider.style.transform = `translateX(${offset}%)`;
-      slider.style.transition = "transform 0.5s ease-in-out";
-    }
-
-    setInterval(slideRecommendations, 2000);
-  });
-
-  // Mobile menu toggle
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        
-        // Toggle hamburger icon
-        const icon = hamburger.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
+  <script>
+    // Scroll Reveal Animation
+    const scrollElements = document.querySelectorAll(".scroll-reveal");
+    const scrollReveal = () => {
+      scrollElements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+          el.classList.add("active");
         }
       });
+    };
+    window.addEventListener("scroll", scrollReveal);
+    scrollReveal();
 
-      // Close menu when clicking on a link
-      const navItems = document.querySelectorAll('.nav-links a');
-      navItems.forEach(item => {
-        item.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          hamburger.classList.remove('active');
-          const icon = hamburger.querySelector('i');
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
+    // Recommendations Slider
+    document.addEventListener("DOMContentLoaded", () => {
+      const slider = document.querySelector(".recommendations-slider");
+      const cards = document.querySelectorAll(".recommendation-card");
+      let index = 0;
+      const slideRecommendations = () => {
+        index = (index + 1) % cards.length;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        slider.style.transition = "transform 0.5s ease-in-out";
+        updateDots();
+      };
+      const updateDots = () => {
+        const dots = document.querySelectorAll(".slider-dot");
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[index]) dots[index].classList.add("active");
+      };
+      setInterval(slideRecommendations, 3000);
+
+      // Dot click event
+      const dots = document.querySelectorAll(".slider-dot");
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          index = parseInt(dot.getAttribute("data-index"));
+          slider.style.transform = `translateX(-${index * 100}%)`;
+          updateDots();
         });
       });
-    }
-  });
+    });
 
-  // Fix viewport height issues on mobile browsers
-  function setVH() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-  setVH();
-  window.addEventListener('resize', setVH);
-</script>
+    // Mobile Menu Toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+          hamburger.classList.toggle("active");
+          const icon = hamburger.querySelector("i");
+          if (icon.classList.contains("fa-bars")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+        // Close menu on link click
+        const navItems = document.querySelectorAll(".nav-links a");
+        navItems.forEach(item => {
+          item.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+            const icon = hamburger.querySelector("i");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          });
+        });
+      }
+    });
 
-  </body>
-  </html>
-  
+    // Fix viewport height for mobile
+    const setVH = () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    setVH();
+    window.addEventListener("resize", setVH);
+  </script>
+</body>
+</html>
